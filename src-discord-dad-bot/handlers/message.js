@@ -30,7 +30,7 @@ module.exports = async (message) => {
 
   const rule = message.client.dadRules[message.guild.id];
   if (
-    rule.ignoreChannelIds.includes(message.channel.id) ||
+    rule.ignoreChannelIds.has(message.channel.id) ||
     !dadRegExp.test(message.content) ||
     Math.random() > rule.chance
   ) {
@@ -43,7 +43,10 @@ module.exports = async (message) => {
   }
 
   const webhook = await getWebhook(message);
-  webhook.send(`${message.author}, Hi ${name}, I'm Dad.`, {
+  const joke = rule.pingUser
+    ? `${message.author} Hi ${name}, I'm Dad.`
+    : `Hi ${name}, I'm Dad.`;
+  webhook.send(joke, {
     username: "Dad",
     avatarURL: rule.avatarUrls[getRandomInt(0, rule.avatarUrls.length)],
     allowedMentions: { parse: ["users"] },

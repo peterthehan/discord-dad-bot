@@ -40,6 +40,7 @@ The bot grabs all text after `i'm`, `im`, and `i am` (case-insensitive) to gener
          "https://cdn.discordapp.com/attachments/747319121582096434/815054009214959646/Hide-the-Pain-Harold-prof.png",
          "https://cdn.discordapp.com/attachments/747319121582096434/815054022464765963/18622628_146041712604173_5023056421634447578_n.png"
        ],
+       "pingUser": true,
        "chance": 0.1
      }
    ]
@@ -50,6 +51,7 @@ The bot grabs all text after `i'm`, `im`, and `i am` (case-insensitive) to gener
    - `guildId` is your server id.
    - `ignoreChannelIds` are the text channel ids the bot ignores user messages from.
    - `avatarUrls` are the image urls the bot uses to set the webhook avatar url.
+   - `pingUser` is a boolean that determines whether the bot pings the user or not.
    - `chance` is the percentage chance the bot sends the dad joke, use values between 0 and 1 (inclusive).
 
 4. `npm start` to run the bot.
