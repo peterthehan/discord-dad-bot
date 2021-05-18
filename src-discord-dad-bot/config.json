@@ -1,0 +1,19 @@
+[
+  {
+    "guildId": "258167954913361930",
+    "ignoreChannelIds": [
+      "649020657522180128",
+      "803909068355928134",
+      "258167954913361930"
+    ],
+    "avatarUrls": [
+      "https://cdn.discordapp.com/attachments/747319121582096434/815053936569352222/5b0821d415e9f917c2730963.png",
+      "https://cdn.discordapp.com/attachments/747319121582096434/815053958074597396/hidethepainharold.png",
+      "https://cdn.discordapp.com/attachments/747319121582096434/815053973702049822/hide-pain-harold-title-red20-web.png",
+      "https://cdn.discordapp.com/attachments/747319121582096434/815053993575055390/Harold.png",
+      "https://cdn.discordapp.com/attachments/747319121582096434/815054009214959646/Hide-the-Pain-Harold-prof.png",
+      "https://cdn.discordapp.com/attachments/747319121582096434/815054022464765963/18622628_146041712604173_5023056421634447578_n.png"
+    ],
+    "chance": 0.1
+  }
+]
