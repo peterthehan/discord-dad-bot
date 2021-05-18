@@ -19,7 +19,7 @@ The bot grabs all text after `i'm`, `im`, and `i am` (case-insensitive) to gener
 
    > Don't forget to give your bot the `Manage Webhooks` permission!
 
-2. Download this widget and move `src-discord-dad-bot` into the [src/widgets](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder created in step 1.
+2. Download this widget and move the `src-discord-dad-bot` folder into the [src/widgets/](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder created in step 1.
 
 3. Open [config.json](https://github.com/peterthehan/discord-dad-bot/blob/master/src-discord-dad-bot/config.json) to configure your own settings:
 
