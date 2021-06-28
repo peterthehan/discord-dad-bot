@@ -63,6 +63,11 @@ The bot was initially created for simple [dad jokes](https://en.wikipedia.org/wi
      - Use the string `{capture}` in the `response` string to replace with `regExp`'s [capture group](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges).
    - `chance` is the percentage chance the bot sends the `response`, use values between 0 and 1 (inclusive).
 
+   Some useful tools:
+
+   - [regex101](https://regex101.com/): build your `regExp`. Make sure to switch the `Flavor` to `ECMAScript (JavaScript)`.
+   - [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions): the definitive guide to regexp.
+
 4. `npm start` to run the bot.
 
 Visit for more help or information!
