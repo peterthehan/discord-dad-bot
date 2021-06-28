@@ -56,7 +56,9 @@ The bot was initially created for simple [dad jokes](https://en.wikipedia.org/wi
    - `username` is the display name of the webhook that sends the `response` message.
    - `avatarUrls` are the image urls the bot uses to set the webhook avatar url.
    - `pingUser` is a boolean that determines whether the bot pings the user (`true`) or not (`false`).
-   - `regExp` is the regular expression the bot tests user messages against to determine whether to send a `response` or not.
+   - `regExp` is an array containing up to 2 string elements:
+     - The first element is a required string defining the regexp the bot tests user messages against to determine whether to send a `response` or not.
+     - The second element is an optional string defining the regexp flags.
    - `response` is the message the bot sends.
      - Use the string `{capture}` in the `response` string to replace with `regExp`'s [capture group](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges).
    - `chance` is the percentage chance the bot sends the `response`, use values between 0 and 1 (inclusive).
