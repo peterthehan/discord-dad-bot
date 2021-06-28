@@ -54,7 +54,7 @@ The bot was initially created for simple [dad jokes](https://en.wikipedia.org/wi
    - `guildId` is your server id.
    - `ignoreChannelIds` are the text channel ids the bot ignores user messages from.
    - `username` is the display name of the webhook that sends the `response` message.
-   - `avatarUrls` are the image urls the bot uses to set the webhook avatar url.
+   - `avatarUrls` are the image urls the webhook randomly picks from to set the avatar.
    - `pingUser` is a boolean that determines whether the bot pings the user (`true`) or not (`false`).
    - `regExp` is an array containing up to 2 string elements:
      - The first element is a required string defining the regexp the bot tests user messages against to determine whether to send a `response` or not.
@@ -63,7 +63,7 @@ The bot was initially created for simple [dad jokes](https://en.wikipedia.org/wi
      - Use the string `{capture}` in the `response` string to replace with `regExp`'s [capture group](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges).
    - `chance` is the percentage chance the bot sends the `response`, use values between 0 and 1 (inclusive).
 
-   Some useful tools:
+   Some useful resources:
 
    - [regex101](https://regex101.com/): build your `regExp`. Make sure to switch the `Flavor` to `ECMAScript (JavaScript)`.
    - [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions): the definitive guide to regexp.
