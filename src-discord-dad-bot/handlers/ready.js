@@ -5,7 +5,11 @@ module.exports = async (client) => {
 
   client.dadRules = {};
   for (const rule of rules) {
+    if (!(rule.guildId in client.dadRules)) {
+      client.dadRules[rule.guildId] = [];
+    }
+
     rule.ignoreChannelIds = new Set(rule.ignoreChannelIds);
-    client.dadRules[rule.guildId] = rule;
+    client.dadRules[rule.guildId].push(rule);
   }
 };

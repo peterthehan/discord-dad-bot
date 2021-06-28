@@ -6,6 +6,7 @@
       "803909068355928134",
       "258167954913361930"
     ],
+    "username": "Dad",
     "avatarUrls": [
       "https://cdn.discordapp.com/attachments/747319121582096434/815053936569352222/5b0821d415e9f917c2730963.png",
       "https://cdn.discordapp.com/attachments/747319121582096434/815053958074597396/hidethepainharold.png",
@@ -15,6 +16,24 @@
       "https://cdn.discordapp.com/attachments/747319121582096434/815054022464765963/18622628_146041712604173_5023056421634447578_n.png"
     ],
     "pingUser": true,
+    "regExp": ["\\bi(?:'| +a|’)?m +(.*)", "i"],
+    "response": "Hi {capture}, I'm Dad.",
     "chance": 0.1
+  },
+  {
+    "guildId": "258167954913361930",
+    "ignoreChannelIds": [
+      "649020657522180128",
+      "803909068355928134",
+      "258167954913361930"
+    ],
+    "username": "🅱eter",
+    "avatarUrls": [
+      "https://cdn.discordapp.com/avatars/206161807491072000/5880296a3051144254b7183b120a8a0a.png"
+    ],
+    "pingUser": true,
+    "regExp": ["\\blet(?:'|’)?s.+go+", "i"],
+    "response": "let's go where?",
+    "chance": 0.5
   }
 ]

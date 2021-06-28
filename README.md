@@ -4,7 +4,7 @@
 
 A Discord bot that makes dad jokes.
 
-The bot grabs all text after `i'm`, `im`, and `i am` (case-insensitive) to generate the message.
+The bot was initially created for simple [dad jokes](https://en.wikipedia.org/wiki/Dad_joke) but it can be generalized to send a predetermined message whenever the user's message matches a configured regular expression (regexp).
 
 <div align="center">
   <img
@@ -32,6 +32,7 @@ The bot grabs all text after `i'm`, `im`, and `i am` (case-insensitive) to gener
          "803909068355928134",
          "258167954913361930"
        ],
+       "username": "Dad",
        "avatarUrls": [
          "https://cdn.discordapp.com/attachments/747319121582096434/815053936569352222/5b0821d415e9f917c2730963.png",
          "https://cdn.discordapp.com/attachments/747319121582096434/815053958074597396/hidethepainharold.png",
@@ -41,6 +42,8 @@ The bot grabs all text after `i'm`, `im`, and `i am` (case-insensitive) to gener
          "https://cdn.discordapp.com/attachments/747319121582096434/815054022464765963/18622628_146041712604173_5023056421634447578_n.png"
        ],
        "pingUser": true,
+       "regExp": ["\\bi(?:'| +a|’)?m +(.*)", "i"],
+       "response": "Hi {capture}, I'm Dad.",
        "chance": 0.1
      }
    ]
@@ -50,9 +53,13 @@ The bot grabs all text after `i'm`, `im`, and `i am` (case-insensitive) to gener
 
    - `guildId` is your server id.
    - `ignoreChannelIds` are the text channel ids the bot ignores user messages from.
+   - `username` is the display name of the webhook that sends the `response` message.
    - `avatarUrls` are the image urls the bot uses to set the webhook avatar url.
-   - `pingUser` is a boolean that determines whether the bot pings the user or not.
-   - `chance` is the percentage chance the bot sends the dad joke, use values between 0 and 1 (inclusive).
+   - `pingUser` is a boolean that determines whether the bot pings the user (`true`) or not (`false`).
+   - `regExp` is the regular expression the bot tests user messages against to determine whether to send a `response` or not.
+   - `response` is the message the bot sends.
+     - Use the string `{capture}` in the `response` string to replace with `regExp`'s [capture group](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges).
+   - `chance` is the percentage chance the bot sends the `response`, use values between 0 and 1 (inclusive).
 
 4. `npm start` to run the bot.
 

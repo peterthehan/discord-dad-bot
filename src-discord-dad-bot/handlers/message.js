@@ -1,5 +1,3 @@
-const dadRegExp = /\bi(?:'| a|’)?m +(.*)/i;
-
 const getWebhook = async (message) => {
   const webhooks = await message.channel.fetchWebhooks();
 
@@ -27,27 +25,30 @@ module.exports = async (message) => {
     return;
   }
 
-  const rule = message.client.dadRules[message.guild.id];
-  if (
-    rule.ignoreChannelIds.has(message.channel.id) ||
-    !dadRegExp.test(message.content) ||
-    Math.random() > rule.chance
-  ) {
-    return;
-  }
+  const rules = message.client.dadRules[message.guild.id];
+  rules.forEach(async (rule) => {
+    const regExp = RegExp(rule.regExp[0], rule.regExp[1]);
+    if (
+      rule.ignoreChannelIds.has(message.channel.id) ||
+      !regExp.test(message.content) ||
+      Math.random() > rule.chance
+    ) {
+      return;
+    }
 
-  const name = message.content.match(dadRegExp)[1];
-  if (name.length === 0) {
-    return;
-  }
+    const capture = message.content.match(regExp)[1];
+    const response =
+      !capture || !capture.length
+        ? rule.response
+        : rule.response.replace(/{capture}/i, capture);
+    const joke = rule.pingUser ? `${message.author}, ${response}` : response;
 
-  const webhook = await getWebhook(message);
-  const joke = rule.pingUser
-    ? `${message.author} Hi ${name}, I'm Dad.`
-    : `Hi ${name}, I'm Dad.`;
-  webhook.send(joke, {
-    username: "Dad",
-    avatarURL: rule.avatarUrls[getRandomInt(0, rule.avatarUrls.length)],
-    allowedMentions: { parse: ["users"] },
+    const webhook = await getWebhook(message);
+
+    webhook.send(joke, {
+      username: rule.username,
+      avatarURL: rule.avatarUrls[getRandomInt(0, rule.avatarUrls.length)],
+      allowedMentions: { parse: ["users"] },
+    });
   });
 };
