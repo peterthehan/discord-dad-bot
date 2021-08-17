@@ -27,11 +27,7 @@ This bot was initially created for simple [dad jokes](https://en.wikipedia.org/w
    [
      {
        "guildId": "258167954913361930",
-       "ignoreChannelIds": [
-         "649020657522180128",
-         "803909068355928134",
-         "258167954913361930"
-       ],
+       "ignoreChannelIds": ["649020657522180128", "258167954913361930"],
        "username": "Dad",
        "avatarUrls": [
          "https://cdn.discordapp.com/attachments/747319121582096434/815053936569352222/5b0821d415e9f917c2730963.png",
