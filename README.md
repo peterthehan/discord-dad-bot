@@ -4,7 +4,7 @@
 
 A Discord bot that makes dad jokes.
 
-The bot was initially created for simple [dad jokes](https://en.wikipedia.org/wiki/Dad_joke) but it can be generalized to send a predetermined message whenever the user's message matches a configured regular expression (regexp).
+This bot was initially created for simple [dad jokes](https://en.wikipedia.org/wiki/Dad_joke) but it can be generalized to send a predetermined message whenever the user's message matches a configured regular expression (regexp).
 
 <div align="center">
   <img
@@ -19,9 +19,9 @@ The bot was initially created for simple [dad jokes](https://en.wikipedia.org/wi
 
    > Don't forget to give your bot the `Manage Webhooks` permission!
 
-2. Download this widget and move the `src-discord-dad-bot` folder into the [src/widgets/](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder created in step 1.
+2. Download this bot and move the `src-discord-dad-bot` folder into the [/src/bots](https://github.com/peterthehan/create-discord-bot/tree/master/src/bots) folder from step 1.
 
-3. Open [config.json](https://github.com/peterthehan/discord-dad-bot/blob/master/src-discord-dad-bot/config.json) to configure your own settings:
+3. Open [config.json](./src-discord-dad-bot/config.json) to configure your own settings:
 
    ```json
    [
@@ -51,7 +51,7 @@ The bot was initially created for simple [dad jokes](https://en.wikipedia.org/wi
 
    Add as many rules as you want to configure for other servers.
 
-   - `guildId` is your server id.
+   - `guildId` is the server id.
    - `ignoreChannelIds` are the text channel ids the bot ignores user messages from.
    - `username` is the display name of the webhook that sends the `response` message.
    - `avatarUrls` are the image urls the webhook randomly picks from to set the avatar.
@@ -73,5 +73,5 @@ The bot was initially created for simple [dad jokes](https://en.wikipedia.org/wi
 Visit for more help or information!
 
 <a href="https://discord.gg/WjEFnzC">
-  <img src="https://discordapp.com/api/guilds/258167954913361930/embed.png?style=banner2" title="Discord Server"/>
+  <img src="https://discord.com/api/guilds/258167954913361930/embed.png?style=banner2" title="Discord Server"/>
 </a>
