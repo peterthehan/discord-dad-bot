@@ -34,7 +34,8 @@ module.exports = async (message: Message): Promise<void> => {
         Math.random() <= config.chance
     )
     .forEach(async (config) => {
-      const capture = (message.content.match(config.regExp) || [])[1];
+      const matches: string[] = message.content.match(config.regExp) || [];
+      const capture = matches.slice(1).find((item) => item !== undefined);
       const response =
         !capture || !capture.length
           ? config.response
