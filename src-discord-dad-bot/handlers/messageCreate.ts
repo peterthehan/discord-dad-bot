@@ -30,21 +30,15 @@ module.exports = async (message: Message): Promise<void> => {
     .filter(
       (config) =>
         !config.ignoreChannelIds.has(message.channel.id) &&
-        config.regExp.test(message.content) &&
+        config.triggerResponse(message) &&
         Math.random() <= config.chance
     )
     .forEach(async (config) => {
-      const matches: string[] = message.content.match(config.regExp) || [];
-      const capture = matches.slice(1).find((item) => item !== undefined);
-      const response =
-        !capture || !capture.length
-          ? config.response
-          : config.response.replace(/{capture}/gi, capture);
-
+      const response = config.createResponse(message);
       const webhook = await getWebhook(message);
 
       webhook.send({
-        content: config.pingUser ? `${message.author}, ${response}` : response,
+        ...response,
         username: config.username,
         avatarURL: config.avatarUrls[getRandomInt(0, config.avatarUrls.length)],
         allowedMentions: { parse: ["users"] },

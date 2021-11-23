@@ -1,5 +1,5 @@
 import { Guild, Snowflake } from "discord.js";
-import configs from "../config.json";
+import { configs } from "../config";
 import { Config } from "../types";
 
 const configMap: Map<Snowflake, Config[]> = new Map();
@@ -8,15 +8,9 @@ configs.forEach((config) => {
     configMap.set(config.guildId, []);
   }
 
-  const newConfig = {
-    ...config,
-    ignoreChannelIds: new Set(config.ignoreChannelIds),
-    regExp: RegExp(config.regExp[0], config.regExp[1]),
-  } as Config;
-
   configMap.set(config.guildId, [
     ...(configMap.get(config.guildId) as Config[]),
-    newConfig,
+    config,
   ]);
 });
 
