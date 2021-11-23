@@ -76,11 +76,14 @@ export const configs = [
       }
 
       const words = message.content.split(/\s+/);
-      const copy = [...words];
+      if (words.length < 5) {
+        return false;
+      }
 
+      const copy = [...words];
       copy.sort();
 
-      return words.length >= 5 && words.join(" ") === copy.join(" ");
+      return words.join(" ") === copy.join(" ");
     },
     createResponse: (message: Message): WebhookMessageOptions => {
       return {
