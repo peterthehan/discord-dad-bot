@@ -71,6 +71,10 @@ export const configs = [
       "https://cdn.discordapp.com/avatars/488918797542096896/d1fb0a94bd9e507307179e8835231ae8.png",
     ],
     triggerResponse: (message: Message): boolean => {
+      if (!message.content) {
+        return false;
+      }
+
       const words = message.content.split(/\s+/);
       const copy = [...words];
 
