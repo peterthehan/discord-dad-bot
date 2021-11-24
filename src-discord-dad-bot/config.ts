@@ -75,7 +75,7 @@ export const configs = [
         return false;
       }
 
-      const words = message.content.split(/\s+/);
+      const words = message.content.toLowerCase().split(/\s+/);
       if (words.length < 5) {
         return false;
       }
