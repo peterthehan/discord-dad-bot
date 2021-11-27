@@ -76,7 +76,7 @@ export const configs = [
       }
 
       const words = message.content.toLowerCase().split(/\s+/);
-      if (words.length < 5) {
+      if (new Set(words).size < 5) {
         return false;
       }
 
