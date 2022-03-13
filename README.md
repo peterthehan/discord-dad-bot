@@ -2,9 +2,9 @@
 
 [![Discord](https://discord.com/api/guilds/258167954913361930/embed.png)](https://discord.gg/WjEFnzC) [![Twitter Follow](https://img.shields.io/twitter/follow/peterthehan.svg?style=social)](https://twitter.com/peterthehan)
 
-A Discord bot that makes dad jokes.
+A Discord bot that makes dad jokes and more.
 
-This bot was initially created for simple [dad jokes](https://en.wikipedia.org/wiki/Dad_joke) but was later generalized to send any message whenever the user's message meets some criteria.
+This bot was initially created for simple [dad jokes](https://en.wikipedia.org/wiki/Dad_joke) but was later generalized to handle any message whenever the user's message meets some criteria.
 
 <div align="center">
   <img
@@ -26,6 +26,7 @@ This bot was initially created for simple [dad jokes](https://en.wikipedia.org/w
    ```ts
    export const configs = [
      {
+       label: "Dad Bot",
        guildId: "258167954913361930",
        ignoreChannelIds: new Set(["649020657522180128", "258167954913361930"]),
        username: "Dad",
@@ -37,14 +38,19 @@ This bot was initially created for simple [dad jokes](https://en.wikipedia.org/w
          "https://cdn.discordapp.com/attachments/747319121582096434/815054009214959646/Hide-the-Pain-Harold-prof.png",
          "https://cdn.discordapp.com/attachments/747319121582096434/815054022464765963/18622628_146041712604173_5023056421634447578_n.png",
        ],
-       triggerResponse: (message: Message): boolean => {
+       trigger: (message: Message): boolean => {
          return /\bi(?:'| +a|’)?m +(.*)/i.test(message.content);
        },
-       createResponse: (message: Message): WebhookMessageOptions => {
+       handleTrigger: async (
+         message: Message,
+         config: Config
+       ): Promise<void> => {
          const matches = message.content.match(/\bi(?:'| +a|’)?m +(.*)/i) || [];
          const capture = matches.slice(1).find((item) => item !== undefined);
 
-         return { content: `${message.author}, Hi ${capture}, I'm Dad.` };
+         sendWebhook(message, config, {
+           content: `${message.author}, Hi ${capture}, I'm Dad.`,
+         });
        },
        chance: 0.1,
      },
@@ -53,13 +59,14 @@ This bot was initially created for simple [dad jokes](https://en.wikipedia.org/w
 
    Add as many rules as you want to configure for other servers.
 
+   - `label` is an optional descriptive label for the rule that is used for logging whenever the rule is triggered.
    - `guildId` is the server id.
    - `ignoreChannelIds` is a `Set` of text channel ids the bot ignores user messages from.
    - `username` is the display name of the webhook that sends the response message.
    - `avatarUrls` are the image urls the webhook randomly picks from to set the avatar.
-   - `triggerResponse` is a function the bot tests a user message against to determine whether to send a response message or not.
-   - `createResponse` is a function the bot runs to create the response message.
-   - `chance` is the percentage chance the bot sends the response message, use values between 0 and 1 (inclusive).
+   - `trigger` is a function the bot tests a user message against to determine whether to run `handleTrigger` or not.
+   - `handleTrigger` is a function the bot runs if the channel criteria, `trigger`, and `chance` are satisfied.
+   - `chance` is the percentage chance the bot runs `handleTrigger` even if it evaluates to `true`, use values between 0 and 1 (inclusive).
 
    Some useful resources:
 
